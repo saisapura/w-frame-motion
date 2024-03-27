@@ -1,0 +1,34 @@
+import {useContext} from 'react';
+import Socials from './Socials'
+import Logo from '../img/header/logo.png'
+import MobileNav from './MobileNav';
+import { Link } from 'react-router-dom';
+import { cursorContext } from '../context/CursorContext';
+
+const Header = () => {
+  const { mouseEnterHandler, mouseLeaveHandler} = useContext(cursorContext);
+  return (
+    <header className='fixed w-full px-[30px] lg:px-[100px] z-30 h-[100px] lg:h-[140px] flex items-center'>
+      <div className='flex flex-col lg:flex-row lg:items-center w-full justify-between'>
+
+        <Link onMouseEnter={ mouseEnterHandler} onMouseLeave={mouseLeaveHandler} to={'/'} className='max-w-[200px]'>
+          <img src={Logo} alt="logo" />
+        </Link>
+        <nav className='hidden xl:flex gap-x-12 font-semibold'onMouseEnter={mouseEnterHandler} >
+          <Link to={'/test2'} className='text-[#696c6d] hover:text-primary transition'>Test2</Link>
+          <Link to={'/'} className='text-[#696c6d] hover:text-primary transition'>Home</Link>
+          <Link to={'/about'} className='text-[#696c6d] hover:text-primary transition'>About</Link>
+          <Link to={'/portfolio'} className='text-[#696c6d] hover:text-primary transition'>Porfolio</Link>
+          <Link to={'/contact'} className='text-[#696c6d] hover:text-primary transition'>Contact</Link>
+          <Link to={'/test'} className='text-[#696c6d] hover:text-primary transition'>Test</Link>
+          
+        </nav>
+        </div>
+        <Socials/>
+        <MobileNav/>
+    </header>
+  )
+} 
+    
+
+export default Header;
