@@ -15,12 +15,11 @@ const Header = () => {
           <img src={Logo} alt="logo" />
         </Link>
         <nav className='hidden xl:flex gap-x-12 font-semibold'onMouseEnter={mouseEnterHandler} >
-          <Link to={'/test2'} className='text-[#696c6d] hover:text-primary transition'>Test2</Link>
           <Link to={'/'} className='text-[#696c6d] hover:text-primary transition'>Home</Link>
           <Link to={'/about'} className='text-[#696c6d] hover:text-primary transition'>About</Link>
-          <Link to={'/portfolio'} className='text-[#696c6d] hover:text-primary transition'>Porfolio</Link>
+          <Link to={'/portfolio'} className='text-[#696c6d] hover:text-primary transition'>Portfolio</Link>
           <Link to={'/contact'} className='text-[#696c6d] hover:text-primary transition'>Contact</Link>
-          <Link to={'/test'} className='text-[#696c6d] hover:text-primary transition'>Test</Link>
+          
           
         </nav>
         </div>

@@ -1,66 +1,107 @@
-import {useContext} from 'react';
-import image1 from '../img/portfolio/1.png'
-import image2 from '../img/portfolio/2.png'
-import image3 from '../img/portfolio/3.png'
-import image4 from '../img/portfolio/4.png'
-import {Link} from 'react-router-dom'
-import {motion} from 'framer-motion'
+import { useState } from 'react';
+import image1 from '../img/portfolio/1.png';
+import image2 from '../img/portfolio/2.png';
+import image3 from '../img/portfolio/3.png';
+import image4 from '../img/portfolio/4.png';
+import { motion } from 'framer-motion';
 import { transition1 } from '../transitions';
-import { cursorContext } from '../context/CursorContext';
+import { projects } from './index';
 
+const Test = () => {
+  const [clickedImage, setClickedImage] = useState(null);
 
-const Portfolio = () => {
-  const { mouseEnterHandler, mouseLeaveHandler} = useContext(cursorContext);
+  const handleImageClick = (image) => {
+    setClickedImage(image);
+  };
+
+  const findProjectById = (id) => {
+    return projects.find((project) => project.id === id);
+  };
+
   return (
-    <motion.section 
-    initial={{opacity:0, y: '100%'}} 
-    animate={{opacity:1, y: 0}}
-    exit={{opacity:0, y:'100%'}}
-    transition={transition1}
-    className='section'>
-      <div className='container mx-auto h-full relative'>
-         <div className='flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left pt-24 lg:pt-36 pb-8'>
-          <motion.div 
-          onMouseEnter={mouseEnterHandler}  onMouseLeave={mouseLeaveHandler}
-          initial={{opacity:0, y: '-80%'}} 
-          animate={{opacity:1, y: 0}}
-          exit={{opacity:0, y:'-80%'}}
-          transition={transition1}
-          className='flex flex-col lg:items-start'>
-            <h1 className='h1'>Porfolio</h1>
-            <p className='mb-12'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <br/>
-          <p className='mb-12'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-            </p>
-            
-            <Link to={'/contact'} className='btn mb-[30px] mx-auto lg:mx-0'>Hire me</Link>
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={transition1}
+      className='section bg-orange-400 overflow-hidden'
+    >
+      <div className='container mx-auto h-screen flex items-center justify-center relative'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2'>
+          <motion.div
+            whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
+            style={{ position: 'relative' }}
+          >
+            <motion.img
+              src={image1}
+              alt='Image 1'
+              initial={{ opacity: 0, y: 100, rotate: 20 }}
+              animate={{ opacity: 1, x: 0, y: -50, rotate: 0 }}
+              transition={{ ...transition1, delay: 0 }}
+              onClick={() => handleImageClick(1)}
+              style={{ cursor: 'pointer', maxWidth: '100%' }}
+            />
           </motion.div>
-
-          <div 
-           onMouseEnter={mouseEnterHandler}  onMouseLeave={mouseLeaveHandler} className='grid grid-cols-2 lg:gap-2'>
-          <div className='max-w-[250px lg:max-w-[320px] h-[187px] lg:h-[220px] bg-slate-600 overflow-hidden'>
-            <img className='object-cover h-full lg:h-[220px] hover:scale-110 transition-all duration-500' src={image1} alt="" />
-          </div>
-
-            <div className='max-w-[250px lg:max-w-[320px] h-[187px] lg:h-[220px] bg-slate-600 overflow-hidden'>
-            <img className='object-cover h-full lg:h-[220px] hover:scale-110 transition-all duration-500' src={image2} alt="" />
-            </div>
-
-            <div className='max-w-[250px lg:max-w-[320px] h-[187px] lg:h-[220px] bg-slate-600 overflow-hidden'>
-            <img className='object-cover h-full lg:h-[220px] hover:scale-110 transition-all duration-500' src={image3} alt="" />
-            </div>
-
-            <div className='max-w-[250px lg:max-w-[320px] h-[187px] lg:h-[220px] bg-slate-600 overflow-hidden'>
-            <img className='object-cover h-full lg:h-[220px] hover:scale-110 transition-all duration-500' src={image4} alt="" />
-            </div>
-          </div>
+          <motion.div
+            whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
+            style={{ position: 'relative' }}
+          >
+            <motion.img
+              src={image2}
+              alt='Image 2'
+              initial={{ opacity: 0, x: 50, y: -50, rotate: -20 }}
+              animate={{ opacity: 1, x: -50, y: 0, rotate: 0 }}
+              transition={{ ...transition1, delay: 0.5 }}
+              onClick={() => handleImageClick(2)}
+              style={{ cursor: 'pointer', maxWidth: '100%' }}
+            />
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
+            style={{ position: 'relative' }}
+          >
+            <motion.img
+              src={image3}
+              alt='Image 3'
+              initial={{ opacity: 0, x: 0, y: 50, rotate: 20 }}
+              animate={{ opacity: 1, x: 50, y: -50, rotate: 0 }}
+              transition={{ ...transition1, delay: 1 }}
+              onClick={() => handleImageClick(3)}
+              style={{ cursor: 'pointer', maxWidth: '100%' }}
+            />
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
+            style={{ position: 'relative' }}
+          >
+            <motion.img
+              src={image4}
+              alt='Image 4'
+              initial={{ opacity: 0, x: 50, rotate: -20 }}
+              animate={{ opacity: 1, x:0, y: 0, rotate: 0 }}
+              transition={{ ...transition1, delay: 1.5 }}
+              onClick={() => handleImageClick(4)}
+              style={{ cursor: 'pointer', maxWidth: '100%' }}
+            />
+          </motion.div>
         </div>
-
-       </div> 
+        {clickedImage && (
+          <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2">
+            <h2>{findProjectById(clickedImage).projectName}</h2>
+            <p>{findProjectById(clickedImage).ProjectDescription}</p>
+          </div>
+        )}
+        <motion.p
+          initial={{ opacity: 0, y: 90 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...transition1, delay: 2.5 }}
+          style={{ position: 'absolute', bottom: '50%', textAlign: 'center' }}
+        >
+          <h1 className='h1 text-red-600'>My projects</h1>
+        </motion.p>
+      </div>
     </motion.section>
-  )
+  );
 };
 
-export default Portfolio;
+export default Test;

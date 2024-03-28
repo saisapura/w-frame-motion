@@ -1,47 +1,111 @@
-import {useContext} from 'react';
-import womanImg from '../img/about/woman.png'
-import { Link } from 'react-router-dom';
-import {motion} from "framer-motion"
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { transition1 } from '../transitions';
-import { cursorContext } from '../context/CursorContext';
+import { about } from './index'; // Import your about data from index file
 
-const About = () => {
-  const { mouseEnterHandler, mouseLeaveHandler} = useContext(cursorContext);
-  return (
-    <motion.section 
-    initial={{opacity:0, y: '100%'}} 
-    animate={{opacity:1, y: 0}}
-    exit={{opacity:0, y:'100%'}}
-    transition={transition1}
-    className='section'>
+import image1 from '../img/portfolio/1.png';
+import image2 from '../img/portfolio/2.png';
+import image3 from '../img/portfolio/3.png';
+import image4 from '../img/portfolio/4.png';
 
-      <div onMouseEnter={mouseEnterHandler} onMouseLeave={mouseLeaveHandler}  
+const Test2 = () => {
+    const [selectedItems, setSelectedItems] = useState([1]);
 
-      
-      className='container mx-auto h-full relative'>
-        <div className='flex flex-col lg:flex-row h-full items-center justify-center gap-x-24 text-center lg:text-left lg:pt-16'>
-          <div className='flex-1 max-h-96 lg:max-h-max order-2 lg:order-none overflow-hidden'><img src={womanImg} alt="" />
-          </div>
-          <motion.div
-          initial={{opacity:0, y: '-80%'}} 
-          animate={{opacity:1, y: 0}}
-          exit={{opacity:0, y:'-80%'}}
-          transition={transition1}
-          className='flex-1 pt-36 pb-14 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center items-center lg:items-start'>
-            <h1 className='h1'>about me</h1>
-          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-          </p>
-          <br/>
-          <br/>
-          <p className='mb-12'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-          </p>
-          <Link to={'/portfolio'} className='btn'>view my work</Link>
-          </motion.div>
-        </div>
-      </div>
-    </motion.section>
-  )
+    // Function to handle image click event
+    const handleImageClick = (id) => {
+        setSelectedItems([id]);
+    };
+
+    return (
+        <motion.section
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={transition1}
+            className='bg-red-300 flex'
+        >
+            {/* Images Container */}
+            <div className='container w-1/2 h-screen flex items-center justify-center relative p-4'>
+                <motion.div
+                    className="image-container"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0 }}
+                >
+                    <motion.img
+                        src={image1}
+                        alt="Image 1"
+                        className={`w-full ${selectedItems.includes(1) ? '' : 'filter grayscale'}`}
+                        initial={{ y: -100, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.5, duration: 0.5 }}
+                        onClick={() => handleImageClick(1)}
+                    />
+                    <motion.img
+                        src={image2}
+                        alt="Image 2"
+                        className={`w-full ${selectedItems.includes(2) ? '' : 'filter grayscale'}`}
+                        initial={{ x: 100, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ delay: 0.5, duration: 1 }}
+                        onClick={() => handleImageClick(2)}
+                    />
+                    <motion.img
+                        src={image3}
+                        alt="Image 3"
+                        className={`w-full ${selectedItems.includes(3) ? '' : 'filter grayscale'}`}
+                        initial={{ x: -100, opacity: 0 }}
+                        animate={{ x: 0, y: 0, opacity: 1 }}
+                        transition={{ delay: 0.5, duration: 1.5 }}
+                        onClick={() => handleImageClick(3)}
+                    />
+                    <motion.img
+                        src={image4}
+                        alt="Image 4"
+                        className={`w-full ${selectedItems.includes(4) ? '' : 'filter grayscale'}`}
+                        initial={{ y: 100, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.5, duration: 1 }}
+                        onClick={() => handleImageClick(4)}
+                    />
+                </motion.div>
+            </div>
+
+            {/* "About me" Container */}
+            <div className='w-full sm:w-1/2  h-screen flex flex-col justify-center'>
+            <motion.h1 
+    initial={{ x: 100, opacity: 0 }}
+    animate={{ x: 0, opacity: 1 }}
+    transition={{ delay: 0.5, duration: 1 }}
+    style={{ position: 'absolute', top: '20%' }}
+    className={`h1 opacity-75 ${selectedItems.length > 0 ? 'md:top-1/4' : ''}`}
+>
+    About me.
+</motion.h1>
+
+<motion.div 
+    initial={{ opacity: 0, x: -100 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ ...transition1, delay: 0.2 }}
+    style={{ position: 'absolute', top: '40%' }} // Adjust top position as needed
+    key={selectedItems}     
+>
+    {selectedItems.map((item) => (
+        <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ ...transition1, delay: 0.2 }}
+            className='w-full md:w-1/2 pr-4 fle'
+            key={item}
+        >
+            <motion.h2 className="text-xl font-semibold">{about[item - 1].title}</motion.h2>
+            <motion.p>{about[item - 1].description}</motion.p>
+        </motion.div>
+    ))}
+</motion.div>
+            </div>
+        </motion.section>
+    );
 };
 
-export default About;
+export default Test2;

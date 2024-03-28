@@ -1,25 +1,25 @@
 export const projects = [ 
     {
         id: 1, 
-        projectName: "Project 1",
-        ProjectDescription: "Example"
+        projectName: "Cineprime",
+        ProjectDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo arcu non est vestibulum, eget consequat urna interdum. Maecenas feugiat diam sed enim finibus, vel lobortis leo sollicitudin. Ut tincidunt, velit vel aliquam condimentum, ipsum est tempor ipsum, at semper justo ligula eget ligula. "
     
     },
     {
         id: 2, 
-        projectName: "Project 2",
-        ProjectDescription: "Example"
+        projectName: "Trackfit",
+        ProjectDescription: " Cras sit amet quam vel lorem ultrices laoreet ac vitae ex. Phasellus vel purus feugiat, ullamcorper ligula non, mollis lectus. Integer luctus convallis tellus, sed condimentum orci sagittis non. Etiam fermentum fermentum bibendum. Sed faucibus varius magna, vel convallis risus tincidunt sit amet. "
     
     },
     {
         id: 3, 
-        projectName: "Project 3",
+        projectName: "Saideluxe Store",
         ProjectDescription: "Example"
     
     },
     {
         id: 4, 
-        projectName: "Project 4",
+        projectName: "Muay Thai FightClub Gym",
         ProjectDescription: "Example"
     
     }

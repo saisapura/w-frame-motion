@@ -4,8 +4,6 @@ import {CgMenuRight} from 'react-icons/cg'
 import {Link} from 'react-router-dom'
 import {motion} from 'framer-motion'
 import { transition1 } from '../transitions';
-import Test2 from '../pages/Test2';
-import Test from '../pages/Test';
 
 const menuVariants = {
   hidden: {
@@ -44,7 +42,7 @@ const MobileNav = () => {
           <Link to='/contact'>Contact</Link>
         </li>
         <li>
-          <Link to='/test'>test</Link>
+          <Link to='/test'>tPortfolio</Link>
         </li>
         <li>
           <Link to='/test2'>Test2</Link>
