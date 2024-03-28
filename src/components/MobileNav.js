@@ -3,7 +3,7 @@ import {IoMdClose} from 'react-icons/io'
 import {CgMenuRight} from 'react-icons/cg'
 import {Link} from 'react-router-dom'
 import {motion} from 'framer-motion'
-import { transition1 } from '../transitions';
+
 
 const menuVariants = {
   hidden: {
@@ -43,9 +43,6 @@ const MobileNav = () => {
         </li>
         <li>
           <Link to='/test'>tPortfolio</Link>
-        </li>
-        <li>
-          <Link to='/test2'>Test2</Link>
         </li>
         </ul>
     </motion.div>

@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 import { transition1 } from '../transitions';
 import { about } from './index'; // Import your about data from index file
 
-import image1 from '../img/portfolio/1.png';
-import image2 from '../img/portfolio/2.png';
-import image3 from '../img/portfolio/3.png';
-import image4 from '../img/portfolio/4.png';
+import image1 from '../img/about/image1.png'
+import image2 from '../img/about/image2.png'
+import image3 from '../img/about/image3.png'
+import image4 from '../img/about/image4.png'
 
-const Test2 = () => {
+const About = () => {
     const [selectedItems, setSelectedItems] = useState([1]);
 
     // Function to handle image click event
@@ -22,7 +22,7 @@ const Test2 = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={transition1}
-            className='bg-red-300 flex'
+            className='bg-[#EEE3CB] flex'
         >
             {/* Images Container */}
             <div className='container w-1/2 h-screen flex items-center justify-center relative p-4'>
@@ -99,7 +99,7 @@ const Test2 = () => {
             key={item}
         >
             <motion.h2 className="text-xl font-semibold">{about[item - 1].title}</motion.h2>
-            <motion.p>{about[item - 1].description}</motion.p>
+            <motion.p className='p sm:text-[calc(10px + 0.75rem)]'>{about[item - 1].description}</motion.p>
         </motion.div>
     ))}
 </motion.div>
@@ -108,4 +108,4 @@ const Test2 = () => {
     );
 };
 
-export default Test2;
+export default About;
