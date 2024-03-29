@@ -42,6 +42,7 @@ const Test = () => {
               style={{ cursor: 'pointer', maxWidth: '100%' }}
             />
           </motion.div>
+          
           <motion.div
             whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
             style={{ position: 'relative' }}
@@ -85,14 +86,16 @@ const Test = () => {
             />
           </motion.div>
         </div>
-        {clickedImage && (
-          <motion.div className="absolute bottom-12 left-1/2 transform -translate-x-1/2"  >
-            <h2 className='h2'> <a href={findProjectById(clickedImage).link} className="hover:text-white">
-      {findProjectById(clickedImage).projectName}
-    </a></h2>
-            <p className='p sm:text-[calc(10px + 0.75rem)]'>{findProjectById(clickedImage).projectDescription}</p>
-          </motion.div>
-        )}
+        {clickedImage && findProjectById(clickedImage) && (
+  <motion.div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+    <h2 className='h2'> 
+      <a href={findProjectById(clickedImage).link} className="hover:text-[#FF5733]" target="_blank" rel="noopener noreferrer">
+        {findProjectById(clickedImage).projectName}
+      </a>
+    </h2>
+    <p className='p sm:text-[calc(10px + 0.75rem)]'>{findProjectById(clickedImage).projectDescription}</p>
+  </motion.div>
+)}
         <motion.p
           initial={{ opacity: 0, y: 90 }}
           animate={{ opacity: 1, y: 50 }}

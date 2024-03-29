@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion'
 import { transition1 } from '../transitions'
 import { cursorContext } from '../context/CursorContext';
+import resume from '../SAPURA CH_CV.pdf'
 
 const Home = () => {
   const { mouseEnterHandler, mouseLeaveHandler} = useContext(cursorContext);
@@ -28,10 +29,11 @@ const Home = () => {
           
           className='w-full pt-36 pb-14 lg:pt-0 lg:w-auto z-10 lg:absolute flex flex-col justify-center items-center lg:items-start'>
             <h1 className='h1'>
-              Frontend<br/>& Web Designer
+              Frontend Dev.<br/>& Web Designer
             </h1>
             <p className='text-[26px] lg:text-[36px] font-primary mb-4 lg:mb-12'>Base in Singapore</p>
-            <Link to={'/contact'} className='btn mb-[30px]'>Get Resume</Link>
+            <Link to={resume} target="_blank" rel="noopener noreferrer" className='btn mb-[30px]'>Get Resume</Link>
+
           </motion.div>
           
           <div className='flex justify-end max-h-96 lg:max-h-max'>
