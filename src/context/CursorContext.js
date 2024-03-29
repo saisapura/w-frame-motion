@@ -4,35 +4,37 @@ export const cursorContext = createContext();
 
 const CursorProvider = ({ children }) => {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
-  // cursor bg state
   const [cursorBG, setCursorBG] = useState('default');
   const mobileViewPortIsActive = window.innerWidth < 768;
 
   useEffect(() => {
-    if (!mobileViewPortIsActive) {
-
-    
-
     const move = (e) => {
-      setCursorPos({ x: e.clientX, y: e.clientY });
+      if (!mobileViewPortIsActive) {
+        setCursorPos({ x: e.clientX, y: e.clientY });
+      }
     };
 
-    window.addEventListener('mousemove', move);
+    if (!mobileViewPortIsActive) {
+      window.addEventListener('mousemove', move);
+    }
 
     return () => {
-      window.removeEventListener('mousemove', move);
+      if (!mobileViewPortIsActive) {
+        window.removeEventListener('mousemove', move);
+      }
     };
-  } else {
-    setCursorBG('none')
-  }
-  }, []);
+  }, [mobileViewPortIsActive]); // Include mobileViewPortIsActive in the dependency array
 
   const mouseEnterHandler = () => {
-    setCursorBG('text');
+    if (!mobileViewPortIsActive) {
+      setCursorBG('text');
+    }
   };
 
   const mouseLeaveHandler = () => {
-    setCursorBG('default');
+    if (!mobileViewPortIsActive) {
+      setCursorBG('default');
+    }
   };
 
   const cursorVariants = {
@@ -52,7 +54,7 @@ const CursorProvider = ({ children }) => {
     none: {
       width: 0,
       height: 0,
-      backgroundColor:"rgba(255, 255, 2555,1)",
+      backgroundColor: 'rgba(255, 255, 255, 1)',
     }
   };
 
