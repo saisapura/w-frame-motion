@@ -28,10 +28,10 @@ const Home = () => {
           onMouseLeave={mouseLeaveHandler}
           
           className='w-full pt-36 pb-14 lg:pt-0 lg:w-auto z-10 lg:absolute flex flex-col justify-center items-center lg:items-start'>
-            <h1 className='h1'>
+            <h1 className='h1 mb-8'>
               Frontend Dev.<br/>& Web Designer
             </h1>
-            <p className='text-[26px] lg:text-[36px] font-primary mb-4 lg:mb-12'>Base in Singapore</p>
+            
             <Link to={resume} target="_blank" rel="noopener noreferrer" className='btn mb-[30px]'>Get Resume</Link>
 
           </motion.div>
