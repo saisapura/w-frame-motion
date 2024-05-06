@@ -29,10 +29,10 @@ const Contact = () => {
         onMouseLeave={mouseLeaveHandler}><h1 className='h1'>contact me</h1>
         <form className='flex flex-col gap-y-4'>
           <div className='flex gap-x-10'>
-            <input className='outline-none border-b border-b-primary h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#434242]' type="text" placeholder='Your name' />
-            <input className='outline-none border-b border-b-primary h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#434242]' type="text" placeholder='Your email address' />
+            <input className='outline-none border-b border-b-primary h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#434242]' type="text" placeholder='Sapura Ch' />
+            <input className='outline-none border-b border-b-primary h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#434242]' type="text" placeholder='sapura.chw@gmail.com' />
           </div>
-          <input className='outline-none border-b border-b-primary h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#434242]' type="text" placeholder='Your message' />
+          <input className='outline-none border-b border-b-primary h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#434242]' type="text" placeholder='Hello' />
           <button className='btn mb-[30px] mx-auto'>Send</button>
         </form>
         </div>

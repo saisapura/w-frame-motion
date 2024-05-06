@@ -8,14 +8,14 @@ export const projects = [
     },
     
     {
-        id: 2, 
-        projectName: "Saideluxe Store [Demo]",
-        projectDescription: "Saideluxe Store is an e-commerce platform emphasizing functionality. Developed with JavaScript, React, and Styled Components, it delivers an optimized online shopping experience across devices through its responsive design.",
-        link: "https://saideluxe.netlify.app/"
+        id: 3, 
+        projectName: "Tocco Toscano [Demo]",
+        projectDescription: "Tocco Toscano is an e-commerce platform emphasizing UI and functionality. Developed with the Liquid Shopify platform by our team, it delivers an optimized online shopping experience across devices through its responsive design.",
+        link: "https://www.toccotoscano.com/"
     },
 
     {
-        id: 3, 
+        id: 2, 
         projectName: "Trackfit [Demo]",
         projectDescription: " TrackFit is a dynamic fitness app crafted to monitor your running and cycling activities effortlessly. Developed with vanilla JavaScript, CSS, and integrated with Leaflet API, it delivers responsive tracking features for users on the go, empowering them to achieve their fitness goals with ease.",
         link: "https://trackfit-app.netlify.app/",
